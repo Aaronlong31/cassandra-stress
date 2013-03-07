@@ -1,0 +1,11 @@
+create keyspace StressKeyspace
+    with placement_strategy = 'SimpleStrategy'
+    and strategy_options = {replication_factor : 1}
+    and durable_writes = true;
+
+use StressKeyspace;
+
+create column family StressStandard
+    and comparator = 'UTF8Type'
+    and default_validation_class = 'UTF8Type'
+    and caching = 'ALL';
